@@ -12,10 +12,9 @@
 
 	&__logo {
 		display: flex;
+		gap: 15px;
 
-		img {
-			margin-right: 15px;
-		}
+		img {}
 
 		h1 {
 			color: #181818;

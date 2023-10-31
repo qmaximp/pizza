@@ -1,14 +1,24 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import css from './PizzaBlock.module.scss'
-import styleButton from '../UI/Buttons.module.scss'
+import styleButton from '../../style/UI/Buttons.module.scss'
 import classNames from 'classnames';
 import Image from 'next/image';
 
 
+
 const PizzaBlock = ({ title, price }) => {
+
+
+	const [pizzaCount, setPizzaCount] = useState(0);
+	const onClickPizzaButton = () => {
+		setPizzaCount(pizzaCount + 1);
+	}
+
 	return (
 		<div className={css.pizzaBlock}>
-			<img
+			<Image
+				fill={true}
 				className={css.pizzaBlock__image}
 				src="https://dodopizza-a.akamaihd.net/static/Img/Products/18dbb12240b041a191c9dc73c9c1f4ef_292x292.webp"
 				alt="Pizza"
@@ -27,7 +37,7 @@ const PizzaBlock = ({ title, price }) => {
 			</div>
 			<div className={css.pizzaBlock__bottom}>
 				<div className={css.pizzaBlock__price}>от {price} ₽</div>
-				<div className={classNames(styleButton.button, styleButton.button__outline, styleButton.button__add)}>
+				<button onClick={onClickPizzaButton} className={classNames(styleButton.button, styleButton.button__outline, styleButton.button__add)}>
 					<svg
 						width="12"
 						height="12"
@@ -41,8 +51,8 @@ const PizzaBlock = ({ title, price }) => {
 						/>
 					</svg>
 					<span>Добавить</span>
-					<i>2</i>
-				</div>
+					<i>{pizzaCount}</i>
+				</button>
 			</div>
 		</div >
 	);

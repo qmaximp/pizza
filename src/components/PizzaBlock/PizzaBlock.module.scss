@@ -10,7 +10,9 @@
 	}
 
 	&__image {
-		width: 260px;
+		width: 260px !important;
+		height: auto !important;
+		position: static !important;
 	}
 
 	&__title {
