@@ -12,10 +12,18 @@ const Categories = () => {
 		{ title: 'Сырная', id: 6 },
 		{ title: 'Закрытые', id: 7 },
 	]
+	const onClickFilter = (index: number) => {
+		let newActives = [...indexActive]
+		newActives.includes(index) ?
+			newActives.length >= 2 ? newActives.splice(newActives.indexOf(index), 1)
+				: null
+			: newActives.push(index)
+		setIndexActive(newActives)
+	}
 	return (
 		<div className={css.categories}>
 			<ul>
-				{categories.map((value) => (<li key={value.id} onClick={() => setIndexActive(value.id)} className={indexActive == value.id ? css.active : ''}>{value.title}</li>))}
+				{categories.map((value) => (<li key={value.id} onClick={() => onClickFilter(value.id)} className={indexActive.includes(value.id) ? css.active : ''}>{value.title}</li>))}
 			</ul>
 		</div>
 	);
