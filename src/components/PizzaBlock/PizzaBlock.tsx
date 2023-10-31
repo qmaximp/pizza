@@ -7,37 +7,30 @@ import Image from 'next/image';
 
 
 
-const PizzaBlock = ({ title, price }) => {
-
-
-	const [pizzaCount, setPizzaCount] = useState(0);
-	const onClickPizzaButton = () => {
-		setPizzaCount(pizzaCount + 1);
-	}
-
+const PizzaBlock = ({ title, price, image, types, sizes }) => {
+	const typeNames = ['тонкое', 'традиционное']
+	const [activeType, setActiveType] = useState([0]);
+	const [activeSize, setActiveSize] = useState([0]);
 	return (
 		<div className={css.pizzaBlock}>
 			<Image
 				fill={true}
 				className={css.pizzaBlock__image}
-				src="https://dodopizza-a.akamaihd.net/static/Img/Products/18dbb12240b041a191c9dc73c9c1f4ef_292x292.webp"
+				src={image}
 				alt="Pizza"
 			/>
 			<h4 className={css.pizzaBlock__title}>{title}</h4>
 			<div className={css.pizzaBlock__selector}>
 				<ul>
-					<li className={css.active}>тонкое</li>
-					<li>традиционное</li>
+					{types.map((typeId) => (<li onClick={() => setActiveType(typeId)} className={activeType == typeId ? css.active : ''} key={typeId.id}>{typeNames[typeId]}</li>))}
 				</ul>
 				<ul>
-					<li className={css.active}>26 см.</li>
-					<li>30 см.</li>
-					<li>40 см.</li>
+					{sizes.map((size, i) => (<li onClick={() => setActiveSize(i)} className={activeSize == i ? css.active : ''} key={size.id}>{size}</li>))}
 				</ul>
 			</div>
 			<div className={css.pizzaBlock__bottom}>
 				<div className={css.pizzaBlock__price}>от {price} ₽</div>
-				<button onClick={onClickPizzaButton} className={classNames(styleButton.button, styleButton.button__outline, styleButton.button__add)}>
+				<button className={classNames(styleButton.button, styleButton.button__outline, styleButton.button__add)}>
 					<svg
 						width="12"
 						height="12"
@@ -51,7 +44,7 @@ const PizzaBlock = ({ title, price }) => {
 						/>
 					</svg>
 					<span>Добавить</span>
-					<i>{pizzaCount}</i>
+					<i>0</i>
 				</button>
 			</div>
 		</div >

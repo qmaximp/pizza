@@ -1,10 +1,7 @@
-
 'use client'
 import React, { SetStateAction, useEffect, useState } from 'react';
 import css from './Categories.module.scss'
 const Categories = () => {
-
-
 	const [indexActive, setIndexActive] = useState([1]);
 	const categories = [
 		{ title: 'Все', id: 1 },
@@ -17,7 +14,10 @@ const Categories = () => {
 	]
 	const onClickFilter = (index: number) => {
 		let newActives = [...indexActive]
-		newActives.includes(index) ? newActives.splice(newActives.indexOf(index), 1) : newActives.push(index)
+		newActives.includes(index) ?
+			newActives.length >= 2 ? newActives.splice(newActives.indexOf(index), 1)
+				: null
+			: newActives.push(index)
 		setIndexActive(newActives)
 	}
 	return (
@@ -28,5 +28,4 @@ const Categories = () => {
 		</div>
 	);
 };
-
 export default Categories;
