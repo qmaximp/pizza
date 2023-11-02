@@ -3,18 +3,17 @@ import React, { useState } from 'react';
 import css from './Sort.module.scss'
 const Sort = () => {
 	const [openPopup, setOpenPopup] = useState(false);
-	const [selected, setSelected] = useState(0);
+	const [selected, setSelected] = useState(1);
 	const popupList = [
-		"популярности",
-		"цене",
-		"алфавиту",
+		{ title: "популярности", id: 1 },
+		{ title: "цене", id: 2 },
+		{ title: "алфавиту", id: 3 }
 	];
-	const sortName = popupList[selected];
-	const onClickListItem = (i) => {
+	const sortName = popupList[selected - 1].title;
+	const onClickListItem = (i: number) => {
 		setSelected(i)
 		setOpenPopup(false)
 	};
-
 	return (
 		<div className={css.sort}>
 			<div className={css.sort__label} >
@@ -33,13 +32,13 @@ const Sort = () => {
 				<b>Сортировка по:</b>
 				<span onClick={() => setOpenPopup(!openPopup)}>{sortName}</span>
 			</div>
-
-			{openPopup && (
+			{openPopup ? (
 				<div className={css.sort__popup}>
 					<ul>
-						{popupList.map((name, i) => (<li key={i} onClick={() => onClickListItem(i)} className={selected == i ? css.active : ''} >{name}</li>))}
+						{popupList.map((name, i) => (<li key={name.id} onClick={() => onClickListItem(name.id)} className={selected == name.id ? css.active : ''} >{name.title}</li>))}
 					</ul>
 				</div>)
+				: null
 			}
 		</div >
 	);
