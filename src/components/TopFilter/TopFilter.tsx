@@ -17,7 +17,7 @@ const TopFilter = () => {
 			</div>
 			<h2 className={css.topFilter__title}>Все пиццы</h2>
 			<div className={css.topFilter__items}>
-				{pizzas.map((pizzas) => (<PizzaBlock key={pizzas.id}  {...pizzas} />))}
+				{pizzas.map((obj) => (<PizzaBlock key={obj.id} {...obj} />))}
 			</div>
 		</div>
 	);

@@ -1,5 +1,5 @@
 'use client'
-import React, { SetStateAction, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import css from './Categories.module.scss'
 const Categories = () => {
 	const [indexActive, setIndexActive] = useState([1]);
@@ -9,9 +9,9 @@ const Categories = () => {
 		{ title: 'Вегетарианская', id: 3 },
 		{ title: 'Гриль', id: 4 },
 		{ title: 'Острые', id: 5 },
-		{ title: 'Сырная', id: 6 },
-		{ title: 'Закрытые', id: 7 },
+		{ title: 'Закрытые', id: 6 },
 	]
+
 	return (
 		<div className={css.categories}>
 			<ul>

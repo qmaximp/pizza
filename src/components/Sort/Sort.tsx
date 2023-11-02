@@ -1,9 +1,23 @@
-import React from 'react';
+'use client'
+import React, { use, useState } from 'react';
 import css from './Sort.module.scss'
 const Sort = () => {
+	const [openPopup, setOpenPopup] = useState(false);
+	const [selected, setSelected] = useState(0);
+	const popupList = [
+		"популярности",
+		"цене",
+		"алфавиту",
+	];
+	const sortName = popupList[selected];
+	const onClickListItem = (i) => {
+		setSelected(i)
+		setOpenPopup(false)
+	};
+
 	return (
 		<div className={css.sort}>
-			<div className={css.sort__label}>
+			<div className={css.sort__label} >
 				<svg
 					width="10"
 					height="6"
@@ -17,16 +31,17 @@ const Sort = () => {
 					/>
 				</svg>
 				<b>Сортировка по:</b>
-				<span>популярности</span>
+				<span onClick={() => setOpenPopup(!openPopup)}>{sortName}</span>
 			</div>
-			<div className={css.sort__popup}>
-				<ul>
-					<li className={css.active}>популярности</li>
-					<li>цене</li>
-					<li>алфавиту</li>
-				</ul>
-			</div>
-		</div>
+
+			{openPopup && (
+				<div className={css.sort__popup}>
+					<ul>
+						{popupList.map((name, i) => (<li key={i} onClick={() => onClickListItem(i)} className={selected == i ? css.active : ''} >{name}</li>))}
+					</ul>
+				</div>)
+			}
+		</div >
 	);
 };
 
