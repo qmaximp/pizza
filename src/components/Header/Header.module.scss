@@ -1,7 +1,8 @@
 @import '../../style/varible.scss';
+@import '../../style/breaks.scss';
 
 .header {
-	border-bottom: 1px solid $gray-line;
+
 	padding: 40px 0;
 
 	.container {
@@ -18,15 +19,147 @@
 
 		h1 {
 			color: #181818;
-			font-size: 24px;
-			letter-spacing: 1%;
+			font-size: 40px;
 			text-transform: uppercase;
 			font-weight: 800;
 		}
 
 		p {
 			color: #7b7b7b;
+			font-size: 20px;
+			font-weight: 700;
 		}
 	}
+}
 
+@media only screen and (min-width: $desktopWide) {
+	.header {
+
+		padding: 40px 0;
+
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		&__logo {
+			display: flex;
+			gap: 15px;
+
+			img {}
+
+			h1 {
+				color: #181818;
+				font-size: 40px;
+				text-transform: uppercase;
+				font-weight: 800;
+			}
+
+			p {
+				color: #7b7b7b;
+				font-size: 20px;
+				font-weight: 700;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: $tabletPortraitMin) and (max-width: $tabletPortraitMax) {
+	.header {
+
+		padding: 40px 0;
+
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		&__logo {
+			display: flex;
+			gap: 15px;
+
+			img {}
+
+			h1 {
+				color: #181818;
+				font-size: 24px;
+				letter-spacing: 1%;
+				text-transform: uppercase;
+				font-weight: 800;
+			}
+
+			p {
+				color: #7b7b7b;
+			}
+		}
+	}
+}
+
+
+@media only screen and (min-width: $tabletLandscapeMin) and (max-width: $tabletLandscapeMax) {
+	.header {
+
+		padding: 40px 0;
+
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		&__logo {
+			display: flex;
+			gap: 15px;
+
+			img {}
+
+			h1 {
+				color: #181818;
+				font-size: 24px;
+				letter-spacing: 1%;
+				text-transform: uppercase;
+				font-weight: 800;
+			}
+
+			p {
+				color: #7b7b7b;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $mobile) {
+	.header {
+
+		padding: 10px 0;
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			gap: 25px;
+		}
+
+		&__logo {
+			display: flex;
+			gap: 15px;
+
+			img {}
+
+			h1 {
+				color: #181818;
+				font-size: 24px;
+				letter-spacing: 1%;
+				text-transform: uppercase;
+				font-weight: 800;
+			}
+
+			p {
+				color: #7b7b7b;
+			}
+		}
+	}
 }

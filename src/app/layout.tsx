@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Handjet } from "next/font/google";
 import "@/style/globals.scss";
 import Wrapper from "@/components/Wrapper/Wrapper";
-import Header from "@/components/Header/Header";
+import Container from '@/components/Container/Container';
+import Header from '@/components/Header/Header';
+
+
 
 const handjet = Handjet({
 	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -24,7 +27,10 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={handjet.className}>
 				<Wrapper>
-					{children}
+					<Container>
+						<Header />
+						{children}
+					</Container>
 				</Wrapper>
 			</body>
 		</html>

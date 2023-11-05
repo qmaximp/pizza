@@ -1,11 +1,15 @@
-import TopFilter from '@/components/TopFilter/TopFilter';
+
+import CartMain from '@/components/CartMain/CartMain';
 import React from 'react';
+
+
+
 
 const page = () => {
 	return (
-		<>
-			<TopFilter />
-		</>
+
+		<CartMain></CartMain>
+
 	);
 };
 

@@ -1,0 +1,26 @@
+@import '../../style/varible.scss';
+
+.notFoundBlock {
+	display: grid;
+	gap: 20px;
+	padding: 20px;
+
+	&__heading {
+		display: flex;
+		justify-content: center;
+		font-weight: 700
+	}
+
+	&__link {
+		display: flex;
+		justify-content: center;
+		font-size: 25px;
+		font-weight: 500;
+		color: $black;
+		transition: .5s;
+
+		&:hover {
+			color: $orange;
+		}
+	}
+}

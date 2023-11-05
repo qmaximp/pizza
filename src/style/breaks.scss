@@ -1,0 +1,33 @@
+/* mobile */
+$mobile: 767px;
+
+
+/* portrait */
+$tabletPortraitMin: 768px;
+$tabletPortraitMax: 1023px;
+
+
+/* landscape */
+$tabletLandscapeMin: 1024px;
+$tabletLandscapeMax: 1280px;
+
+
+/* desktop */
+$desktopWide: 1770px;
+
+
+
+
+/*
+
+@import '../../../style/breaks.scss';
+
+@media only screen and (min-width: $desktopWide) {}
+
+@media only screen and (min-width: $tabletPortraitMin) and (max-width: $tabletPortraitMax) {}
+
+@media only screen and (min-width: $tabletLandscapeMin) and (max-width: $tabletLandscapeMax) {}
+
+@media only screen and (max-width: $mobile) {}
+
+*/

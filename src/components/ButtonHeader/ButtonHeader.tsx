@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
 import styleButton from '../../style/UI/Buttons.module.scss'
+import Link from 'next/link';
 const ButtonHeader = () => {
 	return (
-		<a href="/cart.html" className={classNames(styleButton.button, styleButton.button__cart)}>
-			<span>520 ₽</span>
+		<Link href={'/cart/'} className={classNames(styleButton.button, styleButton.button__cart)}>
+			< span > 520 ₽</ span >
 			<div className={styleButton.button__delimiter}></div>
 			<svg
 				width="18"
@@ -36,7 +37,7 @@ const ButtonHeader = () => {
 				/>
 			</svg>
 			<span>3</span>
-		</a>
+		</Link >
 	);
 };
 
