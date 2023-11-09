@@ -1,23 +1,31 @@
 'use client'
 import React, { useState } from 'react';
 import css from './Categories.module.scss'
-const Categories = () => {
-	const [indexActive, setIndexActive] = useState([1]);
+const Categories = ({ value, onClickCategory }) => {
 	const categories = [
-		{ title: 'Все', id: 1 },
-		{ title: 'Мясные', id: 2 },
-		{ title: 'Вегетарианская', id: 3 },
-		{ title: 'Гриль', id: 4 },
-		{ title: 'Острые', id: 5 },
-		{ title: 'Закрытые', id: 6 },
+		{ title: 'Все', id: 0 },
+		{ title: 'Мясные', id: 1 },
+		{ title: 'Вегетарианская', id: 2 },
+		{ title: 'Гриль', id: 3 },
+		{ title: 'Острые', id: 4 },
+		{ title: 'Закрытые', id: 5 },
 	]
 
 	return (
 		<div className={css.categories}>
 			<ul>
-				{categories.map((value) => (<li key={value.id} onClick={() => setIndexActive(value.id)} className={indexActive == value.id ? css.active : ''}>{value.title}</li>))}
+				{categories.map((categoryName: any) => (
+					<li
+						key={categoryName.id}
+						onClick={() => onClickCategory(categoryName.id)}
+						className={value == categoryName.id ? css.active : ''}>
+						{categoryName.title}
+					</li>
+
+				))}
 			</ul>
 		</div>
 	);
 };
+
 export default Categories;

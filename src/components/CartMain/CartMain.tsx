@@ -23,8 +23,6 @@ const CartMain = () => {
 					<CartItem />
 					<CartItem />
 					<CartItem />
-					{/* <% include components/cart-item.ejs %> <% include components/cart-item.ejs %> <%
-              include components/cart-item.ejs %> <% include components/cart-item.ejs %> */}
 				</div>
 				<div className={css.cart__bottom}>
 					<div className={css.cart__bottom_details}>

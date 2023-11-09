@@ -1,17 +1,20 @@
 'use client'
 import React, { useState } from 'react';
 import css from './Sort.module.scss'
-const Sort = () => {
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+const Sort = ({ value, onClickSort }) => {
 	const [openPopup, setOpenPopup] = useState(false);
-	const [selected, setSelected] = useState(1);
+	const [selected, setSelected] = useState(0);
 	const popupList = [
-		{ title: "популярности", id: 1 },
-		{ title: "цене", id: 2 },
-		{ title: "алфавиту", id: 3 }
+		{ title: "по популярности (desc)", propertySort: 'rating' },
+		{ title: "по популярности (asc)", propertySort: '-rating' },
+		{ title: "по цене (desc)", propertySort: 'price' },
+		{ title: "по цене (asc)", propertySort: '-price' },
+		{ title: "по алфавиту (desc)", propertySort: 'title' },
+		{ title: "по алфавиту (asc)", propertySort: '-title' }
 	];
-	const sortName = popupList[selected - 1].title;
 	const onClickListItem = (i: number) => {
-		setSelected(i)
+		onClickSort(i)
 		setOpenPopup(false)
 	};
 	return (
@@ -30,12 +33,12 @@ const Sort = () => {
 					/>
 				</svg>
 				<b>Сортировка по:</b>
-				<span onClick={() => setOpenPopup(!openPopup)}>{sortName}</span>
+				<span onClick={() => setOpenPopup(!openPopup)}>{value.title}</span>
 			</div>
 			{openPopup ? (
 				<div className={css.sort__popup}>
 					<ul>
-						{popupList.map((name, i) => (<li key={name.id} onClick={() => onClickListItem(name.id)} className={selected == name.id ? css.active : ''} >{name.title}</li>))}
+						{popupList.map((name, i) => (<li key={i} onClick={() => onClickListItem(name)} className={value.propertySort == name.propertySort ? css.active : ''} >{name.title}</li>))}
 					</ul>
 				</div>)
 				: null
