@@ -5,7 +5,8 @@ import styleButton from '../../style/UI/Buttons.module.scss'
 import classNames from 'classnames';
 import Image from 'next/image';
 
-const PizzaBlock = ({ title, price, image, types, sizes }) => {
+
+const PizzaBlock = ({ title, price, image, types, sizes }: any) => {
 	const typeNames = ['тонкое', 'традиционное']
 	const [activeType, setActiveType] = useState([0]);
 	const [activeSize, setActiveSize] = useState([0]);

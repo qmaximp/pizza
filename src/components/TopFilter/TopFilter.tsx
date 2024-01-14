@@ -9,9 +9,6 @@ const TopFilter = () => {
 
 	const [pizzaItems, setPizzaItems] = useState([]);
 	const [loadingPizza, setLoadingPizza] = useState(true)
-
-
-
 	const [idCategories, setIdCategories] = useState(0)
 	const [typeSort, setTypeSort] = useState({
 		title: "по популярности (asc)", propertySort: 'rating'
