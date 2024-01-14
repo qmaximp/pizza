@@ -133,8 +133,9 @@
 	&__cart {
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		line-height: 23px;
-		padding: 12px 25px;
+		height: 40px;
 
 		svg {
 			margin-right: 8px;

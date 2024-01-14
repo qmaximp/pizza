@@ -1,29 +1,31 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import css from './TopFilter.module.scss'
 import Categories from '../Categories/Categories';
 import Sort from '../Sort/Sort';
 import PizzaBlock from '../PizzaBlock/PizzaBlock';
 import Skeleton from '../UI/Skeleton';
-const TopFilter = () => {
+import Pagination from '../Pagination/Pagination';
+import { myContext } from '@/app/page';
 
+
+
+const TopFilter = () => {
 	const [pizzaItems, setPizzaItems] = useState([]);
 	const [loadingPizza, setLoadingPizza] = useState(true)
-
-
-
 	const [idCategories, setIdCategories] = useState(0)
+	const [countPage, setCountPage] = useState(1)
 	const [typeSort, setTypeSort] = useState({
-		title: "по популярности (asc)", propertySort: 'rating'
+		title: "по популярности", propertySort: '-rating'
 	})
-
+	const { valueSearch, setValueSearch } = useContext(myContext)
 	const category = idCategories > 0 ? `category=${idCategories}` : '';
 	const sortBy = typeSort.propertySort.replace('-', '');
 	const order = typeSort.propertySort.includes('-') ? 'asc' : 'desc';
-
+	const search = valueSearch ? `&search=${valueSearch}` : '';
 	useEffect(() => {
 		setLoadingPizza(true);
-		fetch(`https://6544bc1c5a0b4b04436cdd5a.mockapi.io/itemPizzas?${category}&sortBy=${sortBy}&order=${order}`,
+		fetch(`https://6544bc1c5a0b4b04436cdd5a.mockapi.io/itemPizzas?page=${countPage}&limit=4&${category}${search}&sortBy=${sortBy}&order=${order}`,
 		)
 			.then((res) => res.json())
 			.then((json) => {
@@ -31,7 +33,15 @@ const TopFilter = () => {
 				setLoadingPizza(false);
 			});
 		window.scrollTo(0, 0)
-	}, [idCategories, typeSort]);
+	}, [idCategories, typeSort, valueSearch, countPage]);
+	const skeletons = [...new Array(4)].map((i) => <Skeleton key={i} />)
+	const pizzas = pizzaItems.map((obj: any) => (<PizzaBlock key={obj.id} {...obj} />))
+	/* 	const pizzas = pizzaItems.filter(obj => {
+			if (obj.title.toLowerCase().includes(valueSearch.toLowerCase())) {
+				return true
+			}
+		}).map((obj: any) => (<PizzaBlock key={obj.id} {...obj} />)) */
+
 
 	return (
 		<div className={css.topFilter}>
@@ -43,10 +53,11 @@ const TopFilter = () => {
 			<div className={css.topFilter__items}>
 				{
 					loadingPizza
-						? [...new Array(8)].map((i) => <Skeleton key={i} />)
-						: pizzaItems.map((obj: any) => (<PizzaBlock key={obj.id} {...obj} />))
+						? skeletons
+						: pizzas
 				}
 			</div>
+			<Pagination onChangePage={(value) => setCountPage(value)} />
 		</div>
 	);
 };

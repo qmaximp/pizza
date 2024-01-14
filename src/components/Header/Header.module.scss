@@ -2,164 +2,79 @@
 @import '../../style/breaks.scss';
 
 .header {
-
-	padding: 40px 0;
+	padding: 30px 0;
 
 	.container {
-		display: flex;
+		display: grid;
+		justify-items: center;
 		align-items: center;
-		justify-content: space-between;
+		grid-template-columns: 310px 1fr 140px;
+		gap: 40px;
 	}
 
 	&__logo {
 		display: flex;
-		gap: 15px;
+		gap: 10px;
 
 		img {}
 
-		h1 {
-			color: #181818;
-			font-size: 40px;
-			text-transform: uppercase;
-			font-weight: 800;
-		}
+		h1 {}
 
-		p {
-			color: #7b7b7b;
-			font-size: 20px;
-			font-weight: 700;
-		}
+		p {}
 	}
 }
 
-@media only screen and (min-width: $desktopWide) {
-	.header {
-
-		padding: 40px 0;
-
-		.container {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-		}
-
-		&__logo {
-			display: flex;
-			gap: 15px;
-
-			img {}
-
-			h1 {
-				color: #181818;
-				font-size: 40px;
-				text-transform: uppercase;
-				font-weight: 800;
-			}
-
-			p {
-				color: #7b7b7b;
-				font-size: 20px;
-				font-weight: 700;
-			}
-		}
-	}
-}
+@media only screen and (min-width: $desktopWide) {}
 
 @media only screen and (min-width: $tabletPortraitMin) and (max-width: $tabletPortraitMax) {
 	.header {
-
-		padding: 40px 0;
+		padding: 30px 0;
 
 		.container {
-			display: flex;
+			display: grid;
+			justify-items: center;
 			align-items: center;
-			justify-content: space-between;
+			grid-template-columns: 1fr;
+			gap: 40px;
 		}
 
 		&__logo {
 			display: flex;
-			gap: 15px;
+			gap: 10px;
 
 			img {}
 
-			h1 {
-				color: #181818;
-				font-size: 24px;
-				letter-spacing: 1%;
-				text-transform: uppercase;
-				font-weight: 800;
-			}
+			h1 {}
 
-			p {
-				color: #7b7b7b;
-			}
+			p {}
 		}
 	}
 }
 
 
-@media only screen and (min-width: $tabletLandscapeMin) and (max-width: $tabletLandscapeMax) {
-	.header {
-
-		padding: 40px 0;
-
-		.container {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-		}
-
-		&__logo {
-			display: flex;
-			gap: 15px;
-
-			img {}
-
-			h1 {
-				color: #181818;
-				font-size: 24px;
-				letter-spacing: 1%;
-				text-transform: uppercase;
-				font-weight: 800;
-			}
-
-			p {
-				color: #7b7b7b;
-			}
-		}
-	}
-}
+@media only screen and (min-width: $tabletLandscapeMin) and (max-width: $tabletLandscapeMax) {}
 
 @media only screen and (max-width: $mobile) {
 	.header {
-
-		padding: 10px 0;
+		padding: 30px 0;
 
 		.container {
-			display: flex;
-			flex-direction: column;
+			display: grid;
+			justify-items: center;
 			align-items: center;
-			justify-content: space-between;
-			gap: 25px;
+			grid-template-columns: 1fr;
+			gap: 40px;
 		}
 
 		&__logo {
 			display: flex;
-			gap: 15px;
+			gap: 10px;
 
 			img {}
 
-			h1 {
-				color: #181818;
-				font-size: 24px;
-				letter-spacing: 1%;
-				text-transform: uppercase;
-				font-weight: 800;
-			}
+			h1 {}
 
-			p {
-				color: #7b7b7b;
-			}
+			p {}
 		}
 	}
 }

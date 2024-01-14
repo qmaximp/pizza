@@ -3,8 +3,12 @@ import css from './header.module.scss'
 import ButtonHeader from '../ButtonHeader/ButtonHeader';
 import Image from 'next/image';
 import Link from 'next/link';
+import Search from '../Search/Search';
+
 
 const Header = () => {
+
+
 	return (
 		<header className={css.header}>
 			<div className={css.container}>
@@ -17,6 +21,7 @@ const Header = () => {
 						</div>
 					</div>
 				</Link>
+				<Search />
 				<div className={css.header__cart}>
 					<ButtonHeader />
 				</div>

@@ -5,7 +5,9 @@ import React from 'react';
 
 const notFound = () => {
 	return (
-		<NotFoundBlock />
+		<>
+			<NotFoundBlock />
+		</>
 	);
 };
 

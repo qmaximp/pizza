@@ -6,12 +6,10 @@ const Sort = ({ value, onClickSort }) => {
 	const [openPopup, setOpenPopup] = useState(false);
 	const [selected, setSelected] = useState(0);
 	const popupList = [
-		{ title: "по популярности (desc)", propertySort: 'rating' },
-		{ title: "по популярности (asc)", propertySort: '-rating' },
-		{ title: "по цене (desc)", propertySort: 'price' },
-		{ title: "по цене (asc)", propertySort: '-price' },
-		{ title: "по алфавиту (desc)", propertySort: 'title' },
-		{ title: "по алфавиту (asc)", propertySort: '-title' }
+		{ title: "по популярности", propertySort: '-rating' },
+		{ title: "по дороже", propertySort: 'price' },
+		{ title: "по дешевле", propertySort: '-price' },
+		{ title: "по алфавиту", propertySort: '-title' }
 	];
 	const onClickListItem = (i: number) => {
 		onClickSort(i)

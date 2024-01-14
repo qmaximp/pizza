@@ -7,9 +7,9 @@ import React from 'react';
 
 const page = () => {
 	return (
-
-		<CartMain></CartMain>
-
+		<>
+			<CartMain></CartMain>
+		</>
 	);
 };
 

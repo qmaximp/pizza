@@ -1,10 +1,9 @@
+
 import type { Metadata } from "next";
 import { Handjet } from "next/font/google";
 import "@/style/globals.scss";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import Container from '@/components/Container/Container';
-import Header from '@/components/Header/Header';
-
 
 
 const handjet = Handjet({
@@ -23,12 +22,15 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
+
+
+
+
 	return (
 		<html lang="en">
 			<body className={handjet.className}>
 				<Wrapper>
 					<Container>
-						<Header />
 						{children}
 					</Container>
 				</Wrapper>
