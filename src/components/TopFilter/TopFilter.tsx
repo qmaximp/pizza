@@ -6,7 +6,7 @@ import Sort from '../Sort/Sort';
 import PizzaBlock from '../PizzaBlock/PizzaBlock';
 import Skeleton from '../UI/Skeleton';
 import Pagination from '../Pagination/Pagination';
-import { myContext } from '@/app/page';
+import { SearchContext } from '@/app/page';
 
 
 
@@ -18,7 +18,7 @@ const TopFilter = () => {
 	const [typeSort, setTypeSort] = useState({
 		title: "по популярности", propertySort: '-rating'
 	})
-	const { valueSearch, setValueSearch } = useContext(myContext)
+	const { valueSearch, setValueSearch } = useContext(SearchContext)
 	const category = idCategories > 0 ? `category=${idCategories}` : '';
 	const sortBy = typeSort.propertySort.replace('-', '');
 	const order = typeSort.propertySort.includes('-') ? 'asc' : 'desc';
@@ -36,11 +36,6 @@ const TopFilter = () => {
 	}, [idCategories, typeSort, valueSearch, countPage]);
 	const skeletons = [...new Array(4)].map((i) => <Skeleton key={i} />)
 	const pizzas = pizzaItems.map((obj: any) => (<PizzaBlock key={obj.id} {...obj} />))
-	/* 	const pizzas = pizzaItems.filter(obj => {
-			if (obj.title.toLowerCase().includes(valueSearch.toLowerCase())) {
-				return true
-			}
-		}).map((obj: any) => (<PizzaBlock key={obj.id} {...obj} />)) */
 
 
 	return (
@@ -57,7 +52,7 @@ const TopFilter = () => {
 						: pizzas
 				}
 			</div>
-			<Pagination onChangePage={(value) => setCountPage(value)} />
+			<Pagination onChangePage={(value: React.SetStateAction<number>) => setCountPage(value)} />
 		</div>
 	);
 };

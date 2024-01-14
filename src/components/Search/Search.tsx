@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import css from './Search.module.scss'
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
-import { myContext } from '@/app/page';
+import { SearchContext } from '@/app/page';
 
 const Search = () => {
-	const { valueSearch, setValueSearch } = useContext(myContext)
+	const { valueSearch, setValueSearch } = useContext(SearchContext)
 	return (
 		<div className={css.search}>
 			<SearchIcon className={css.search__icon} />
